@@ -1,0 +1,140 @@
+@import "@fontsource/roboto";
+
+.NavBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 75px;
+  border-bottom: 2px solid rgba(0,0,0,0.06);
+}
+
+.NavBar img {
+  height: 75px;
+  margin-left: 20px;
+}
+
+/* ========== CAROUSEL STYLES ========== */
+.carousel-slide {
+  position: relative;
+  height: 500px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+}
+
+.carousel-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  gap: 2rem;
+  padding: 0 3rem;
+}
+
+.carousel-text {
+  flex: 0 0 45%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.carousel-image-wrapper {
+  flex: 0 0 50%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+}
+
+.carousel-image-wrapper img {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.6s ease;
+}
+
+.carousel-image-wrapper:hover img {
+  transform: scale(1.05);
+}
+
+.carousel-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+  animation: slideInLeft 0.6s ease;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Responsive carousel */
+@media (max-width: 1024px) {
+  .carousel-content {
+    padding: 0 2rem;
+    gap: 1.5rem;
+  }
+
+  .carousel-title {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .carousel-slide {
+    height: 400px;
+  }
+
+  .carousel-content {
+    flex-direction: column;
+    padding: 2rem 1.5rem;
+    gap: 1rem;
+  }
+
+  .carousel-text {
+    flex: 0 0 auto;
+    justify-content: center;
+  }
+
+  .carousel-image-wrapper {
+    flex: 0 0 auto;
+    justify-content: center;
+    max-height: 200px;
+  }
+
+  .carousel-title {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-slide {
+    height: 300px;
+  }
+
+  .carousel-content {
+    padding: 1.5rem 1rem;
+  }
+
+  .carousel-title {
+    font-size: 1.4rem;
+  }
+
+  .carousel-image-wrapper {
+    max-height: 120px;
+  }
+}

@@ -1,0 +1,130 @@
+
+.carousel-wrapper {
+  max-width: 1500px;  /* 👈 Giới hạn chiều rộng (bạn có thể chỉnh 80% hoặc 1000px tùy ý) */
+  margin: 40px auto;  /* 👈 Canh giữa màn hình (auto) và cách trên dưới 40px */
+  border-radius: 25px; /* 👈 Bo tròn góc cho mềm mại */
+  overflow: hidden;    /* 👈 Ẩn phần thừa để thấy được góc bo tròn */
+  /* box-shadow: 0 15px 40px rgba(0,0,0,0.1); 👈 Thêm bóng đổ giúp banner nổi lên */
+  padding-bottom: 30px;
+  transform: translateZ(0);
+}
+
+.carousel-slide {
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f4f6f8;
+}
+
+.carousel-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 50px;
+  gap: 50px;
+}
+
+/* --- PHẦN CHỮ (Chỉnh sửa chính ở đây) --- */
+.carousel-text {
+  flex: 1;
+  display: flex;            /* Dùng Flexbox */
+  flex-direction: column;   /* Xếp chồng dọc: Label -> Title -> Button */
+  justify-content: center;  /* Căn giữa theo chiều dọc */
+  align-items: flex-start;  /* Căn lề trái */
+  text-align: left;
+  z-index: 2;
+}
+
+/* 1. Label: To, Đậm */
+.hero-label {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #2c3e50;
+  margin: 0 0 15px 0; /* Khoảng cách dưới 15px */
+  line-height: 1.1;
+  text-transform: uppercase; /* In hoa nhìn cho mạnh mẽ */
+  letter-spacing: -1px;
+}
+
+/* 2. Title: Nhỏ, Mảnh */
+.hero-title {
+  font-size: 1.1rem;
+  color: #555;
+  font-weight: 400;
+  margin: 0 0 30px 0; /* Khoảng cách dưới 30px để tách nút ra */
+  max-width: 90%;
+  line-height: 1.6;
+}
+
+/* 3. Nút bấm */
+.btn-shop {
+  padding: 14px 35px;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 5px; /* Bo góc nhẹ vuông vức hơn */
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3); /* Đổ bóng cho nút */
+  transition: all 0.3s ease;
+}
+
+.btn-shop:hover {
+  background-color: #c0392b;
+  transform: translateY(-3px); /* Nút bay lên nhẹ khi hover */
+  box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
+}
+
+/* --- PHẦN ẢNH --- */
+.carousel-image-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.carousel-image-wrapper img {
+  max-width: 100%;
+  max-height: 450px;
+  object-fit: contain;
+  /* Hiệu ứng đổ bóng cho ảnh sản phẩm nổi lên */
+  filter: drop-shadow(10px 20px 30px rgba(0,0,0,0.15)); 
+  transition: transform 0.5s ease;
+}
+
+/* Hiệu ứng hover vào banner thì ảnh phóng to nhẹ */
+.carousel-slide:hover .carousel-image-wrapper img {
+    transform: scale(1.05);
+}
+
+/* Responsive Mobile */
+@media (max-width: 768px) {
+  .carousel-content {
+    flex-direction: column-reverse; /* Đảo: Ảnh lên trên, chữ xuống dưới */
+    padding: 20px;
+    gap: 20px;
+  }
+  
+  .carousel-slide {
+    height: auto;
+    padding: 40px 0;
+  }
+
+  .carousel-text {
+    align-items: center; /* Ra giữa màn hình */
+    text-align: center;
+  }
+  
+  .hero-label {
+    font-size: 2rem;
+  }
+  
+  .carousel-image-wrapper img {
+    max-height: 250px;
+  }
+}
